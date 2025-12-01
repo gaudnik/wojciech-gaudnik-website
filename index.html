@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wojciech Gaudnik</title>
+<style>
+    body {
+        background-color: #000;
+        color: #00ff66;
+        font-family: "Courier New", monospace;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        padding: 20px;
+        text-align: center;
+        font-size: 2.5rem;
+        border-bottom: 1px solid #00ff66;
+        letter-spacing: 2px;
+    }
+
+    #typewriter {
+        border-right: 2px solid #00ff66;
+        padding-right: 5px;
+        animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+        0% { border-color: transparent; }
+        50% { border-color: #00ff66; }
+        100% { border-color: transparent; }
+    }
+
+    nav {
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #00ff66;
+    }
+
+    nav a {
+        color: #00ff66;
+        text-decoration: none;
+        margin: 0 15px;
+        border: 1px solid #00ff66;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        background-color: #00ff66;
+        color: #000;
+    }
+
+    section {
+        padding: 40px;
+        max-width: 900px;
+        margin: 2cm auto 80px auto; /* odstęp 2 cm między sekcjami */
+        line-height: 1.6;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(6px);
+        border: 1px solid #00ff66;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,255,102,0.2);
+        animation: fadeIn 1s ease;
+    }
+
+    h2 {
+        color: #00ff66;
+        border-left: 4px solid #00ff66;
+        padding-left: 10px;
+    }
+
+    .project-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .project-list li {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border: 1px solid #00ff66;
+        border-radius: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-list li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(0,255,102,0.4);
+    }
+
+    footer {
+        border-top: 1px solid #00ff66;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background: #000;
+        border: 1px solid #00ff66;
+        color: #00ff66;
+        border-radius: 5px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #00ff66;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #00cc55;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.12;
+        z-index: -1;
+    }
+
+    .glow-section {
+        box-shadow: 0 0 0 rgba(0,255,102,0);
+        transition: box-shadow 0.5s;
+    }
+    .glow-section.active {
+        box-shadow: 0 0 25px rgba(0,255,102,0.7);
+    }
+
+    #oscilloscopeCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.25;
+        z-index: -2;
+    }
+
+    #matrixCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.2;
+        z-index: -3;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    nav a::before {
+        content: "➡ ";
+    }
+
+    @media (max-width: 600px) {
+        body { font-size: 16px; }
+        nav a { display: block; margin: 10px auto; width: 70%; }
+        section { padding: 20px; }
+    }
+</style>
+</head>
+<body>
+<header>
+    <span id="typewriter"></span>
+</header>
+
+<nav>
+    <a href="#o-mnie">O mnie</a>
+    <a href="#projekty">Projekty</a>
+    <a href="#oferta">Oferta</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="https://github.com/" target="_blank"> GitHub</a>
+</nav>
+
+<section id="o-mnie">
+    <h2>O mnie</h2>
+    <p>
+        Nazywam się Wojciech Gaudnik i zajmuję się elektroniką, projektowaniem układów, oraz systemami sterowania. Moja praca i pasja skupiają się na tworzeniu funkcjonalnych i niezawodnych rozwiązań elektronicznych, a także programowaniu mikrokontrolerów. Od kilku lat realizuję również zlecenia komercyjne związane z elektroniką, automatyką oraz projektami embedded.
+    </p>
+</section>
+
+<section id="projekty">
+    <h2>Moje projekty jako elektronik</h2>
+    <ul class="project-list">
+        <li>
+            Projektowanie układów elektronicznych<br>
+            <!-- <img src="" style="width:100%;border-radius:10px;margin-top:10px;"> -->
+        </li>
+        <li>
+            Programowanie mikrokontrolerów AVR<br>
+            <!-- <img src="" style="width:100%;border-radius:10px;margin-top:10px;"> -->
+        </li>
+        <li>
+            Sterowniki do ruchomego ramienia wykorzystywanego w pracy doktorskiej<br>
+            <!-- <img src="" style="width:100%;border-radius:10px;margin-top:10px;"> -->
+        </li>
+    </ul>
+</section>
+
+<section id="oferta">
+    <h2>Oferta</h2>
+    <ul class="project-list">
+        <li>
+            Tworzenie układów elektronicznych na zamówienie<br>
+            <!-- <img src="https://images.unsplash.com/photo-1601582584257-95c9b70736ec?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:10px;margin-top:10px;"> -->
+        </li>
+        <li>
+            Prototypowanie i projektowanie PCB<br>
+            <!-- <img src="https://images.unsplash.com/photo-1610100579566-51a52b4c92e1?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:10px;margin-top:10px;"> -->
+        </li>
+        <li>
+            Oprogramowanie mikrokontrolerów (AVR, ARM, ESP)<br>
+            <!-- <img src="https://images.unsplash.com/photo-1581091012184-7b2e7d8e3a24?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:10px;margin-top:10px;"> -->
+        </li>
+    </ul>
+</section>
+
+<section id="kontakt">
+    <h2>Kontakt</h2>
+    <form id="contactForm">
+        <label>Imię i nazwisko:</label>
+        <input type="text" name="name" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Wiadomość:</label>
+        <textarea name="message" rows="5" required></textarea>
+
+        <button type="submit">Wyślij</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            emailjs.send("default_service", "template_wojciech", {
+                from_name: this.name.value,
+                reply_to: this.email.value,
+                message: this.message.value,
+                to_email: "wojciech.gaudnik@gmail.com"
+            })
+            .then(function() {
+                alert("Wiadomość została wysłana!");
+            }, function(error) {
+                alert("Błąd wysyłania: " + JSON.stringify(error));
+            });
+        });
+    </script>
+</section>
+
+<canvas id="matrixCanvas"></canvas>
+<canvas id="oscilloscopeCanvas"></canvas>
+<footer>
+    © 2025 Wojciech Gaudnik
+</footer>
+<script>
+    // Typewriter effect
+    const text = "Wojciech Gaudnik";
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("typewriter").textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 120);
+        }
+    }
+    window.onload = typeWriter;
+
+    // Neon scroll glow
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        sections.forEach(sec => {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3) {
+                sec.classList.add('glow-section', 'active');
+            } else {
+                sec.classList.remove('active');
+            }
+        });
+    });
+
+    // Matrix effect
+    const matrixCanvas = document.getElementById('matrixCanvas');
+    const mCtx = matrixCanvas.getContext('2d');
+    matrixCanvas.width = window.innerWidth;
+    matrixCanvas.height = window.innerHeight;
+    const chars = '01';
+    const fontSize = 14;
+    const columns = matrixCanvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+    function drawMatrix() {
+        mCtx.fillStyle = 'rgba(0,0,0,0.05)';
+        mCtx.fillRect(0,0,matrixCanvas.width,matrixCanvas.height);
+        mCtx.fillStyle = '#00ff66';
+        mCtx.font = fontSize + 'px monospace';
+        drops.forEach((y,i)=>{
+            const text = chars[Math.floor(Math.random()*chars.length)];
+            mCtx.fillText(text, i*fontSize, y*fontSize);
+            if (y*fontSize > matrixCanvas.height && Math.random() > 0.95) drops[i]=0;
+            drops[i]++;
+        });
+    }
+    setInterval(drawMatrix, 50);
+
+    // Oscilloscope
+    const oscCanvas = document.getElementById('oscilloscopeCanvas');
+    const oCtx = oscCanvas.getContext('2d');
+    oscCanvas.width = window.innerWidth;
+    oscCanvas.height = window.innerHeight;
+    let x = 0;
+    function drawOsc() {
+        oCtx.clearRect(0,0,oscCanvas.width,oscCanvas.height);
+        oCtx.strokeStyle = '#00ff66';
+        oCtx.beginPath();
+        for (let i=0; i<oscCanvas.width; i++) {
+            const y = oscCanvas.height/2 + Math.sin((x+i)*0.02)*40 * Math.sin((x+i)*0.005);
+            if (i===0) oCtx.moveTo(i,y);
+            else oCtx.lineTo(i,y);
+        }
+        oCtx.stroke();
+        x += 4;
+        requestAnimationFrame(drawOsc);
+    }
+    drawOsc();
+</script>
+</body>
+</html>
