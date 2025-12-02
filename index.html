@@ -57,7 +57,7 @@
     section {
         padding: 40px;
         max-width: 900px;
-        margin: 2cm auto 80px auto; /* odstęp 2 cm między sekcjami */
+        margin: 2cm auto 80px auto;
         line-height: 1.6;
         background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(6px);
@@ -111,19 +111,47 @@
         border-radius: 5px;
     }
 
-    button {
-        margin-top: 15px;
-        padding: 10px 20px;
+    /* PRZYCISK NEONOWY + PULSOWANIE + WYŚRODKOWANIE + SZEROKOŚĆ */
+    #kontakt button {
+        display: block;
+        margin: 20px auto 0 auto; /* wyśrodkowanie */
+        width: 60%; /* szerszy */
+        padding: 16px 0;
+        border: none;
+        border-radius: 12px;
         background: #00ff66;
         color: #000;
-        border: none;
-        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: 700;
         cursor: pointer;
-        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 0 12px #00ff66, 0 0 24px rgba(0,255,102,0.5);
+        transition: 0.3s ease;
+        animation: pulse 2s infinite;
+        text-align: center;
     }
 
-    button:hover {
+    #kontakt button:hover {
         background: #00cc55;
+        box-shadow: 0 0 18px #00ff66, 0 0 35px rgba(0,255,102,0.7);
+        transform: translateY(-2px);
+        animation: pulseHover 1.5s infinite;
+    }
+
+    #kontakt button:active {
+        transform: translateY(0);
+        box-shadow: 0 0 10px #00ff66;
+    }
+
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 12px #00ff66, 0 0 24px rgba(0,255,102,0.5); }
+        50% { box-shadow: 0 0 18px #00ff66, 0 0 36px rgba(0,255,102,0.7); }
+    }
+
+    @keyframes pulseHover {
+        0%, 100% { box-shadow: 0 0 18px #00ff66, 0 0 35px rgba(0,255,102,0.7); }
+        50% { box-shadow: 0 0 22px #00ff66, 0 0 45px rgba(0,255,102,0.85); }
     }
 
     body::before {
@@ -183,6 +211,7 @@
         body { font-size: 16px; }
         nav a { display: block; margin: 10px auto; width: 70%; }
         section { padding: 20px; }
+        #kontakt button { width: 80%; }
     }
 </style>
 </head>
@@ -202,90 +231,73 @@
 <section id="o-mnie">
     <h2>O mnie</h2>
     <p>
-        Nazywam się Wojciech Gaudnik i zajmuję się elektroniką, projektowaniem układów, oraz systemami sterowania. Moja praca i pasja skupiają się na tworzeniu funkcjonalnych i niezawodnych rozwiązań elektronicznych, a także programowaniu mikrokontrolerów. Od kilku lat realizuję również zlecenia komercyjne związane z elektroniką, automatyką oraz projektami embedded.
-    </p>
+Moją zawodową ścieżką jest programowanie. Jako senior dev-architekt zajmuję się projektowaniem i nadzorowaniem kompleksowych systemów — definiuję architekturę oprogramowania, wybieram technologie, wzorce i standardy, nadzoruję jakość, wydajność, skalowalność i bezpieczeństwo. Współpracuję z zespołami deweloperskimi i interesariuszami, tłumacząc wymagania biznesowe na konkretne rozwiązania techniczne, prowadzę przeglądy kodu, koordynuję rozwój i mentoruję młodszych programistów. Moim zadaniem jest też planowanie rozwoju systemów, przewidywanie możliwych ryzyk i zapewnianie, by architektura była stabilna, elastyczna i łatwa w utrzymaniu.</p>
+
+<p>Drugą moją pasją jest elektronika — projektowanie układów, systemów sterowania i programowanie mikrokontrolerów. Łącząc tę pasję z umiejętnościami inżynierskimi, realizuję projekty elektroniki i embedded, dążąc do tworzenia funkcjonalnych, niezawodnych rozwiązań. Z czasem ta fascynacja przerodziła się też w działalność biznesową — dzięki temu mogę podchodzić do każdego zlecenia zarówno z doświadczeniem architekta IT, jak i praktykiem elektroniki, co pozwala mi dostarczać kompleksowe rozwiązania od warstwy sprzętowej po software.</p>
 </section>
 
 <section id="projekty">
     <h2>Moje projekty jako elektronik</h2>
     <ul class="project-list">
-        <li>
-            Projektowanie układów elektronicznych<br>
-            <!-- <img src="" style="width:100%;border-radius:10px;margin-top:10px;"> -->
-        </li>
-        <li>
-            Programowanie mikrokontrolerów AVR<br>
-            <!-- <img src="" style="width:100%;border-radius:10px;margin-top:10px;"> -->
-        </li>
-        <!-- <li> -->
-            <!-- Sterowniki do ruchomego ramienia wykorzystywanego w pracy doktorskiej<br> -->
-            <!-- <img src="" style="width:100%;border-radius:10px;margin-top:10px;"> -->
-        <!-- </li> -->
+        <li>Projektowanie układów elektronicznych</li>
+        <li>Programowanie mikrokontrolerów AVR</li>
     </ul>
 </section>
 
 <section id="oferta">
     <h2>Oferta</h2>
+    <p class="oferta-opis">
+        Wszystkie realizowane projekty obsługuję w pełni profesjonalnie, oferując także możliwość rozliczenia na podstawie faktury VAT.
+    </p>
     <ul class="project-list">
-        <li>
-            Tworzenie układów elektronicznych na zamówienie<br>
-            <!-- <img src="https://images.unsplash.com/photo-1601582584257-95c9b70736ec?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:10px;margin-top:10px;"> -->
-        </li>
-        <li>
-            Prototypowanie i projektowanie PCB<br>
-            <!-- <img src="https://images.unsplash.com/photo-1610100579566-51a52b4c92e1?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:10px;margin-top:10px;"> -->
-        </li>
-        <li>
-            Oprogramowanie mikrokontrolerów (AVR, ARM, ESP)<br>
-            <!-- <img src="https://images.unsplash.com/photo-1581091012184-7b2e7d8e3a24?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:10px;margin-top:10px;"> -->
-        </li>
+        <li>Tworzenie układów elektronicznych na zamówienie</li>
+        <li>Prototypowanie i projektowanie PCB</li>
+        <li>Oprogramowanie mikrokontrolerów (AVR, ARM, ESP)</li>
     </ul>
 </section>
 
 <section id="kontakt">
     <h2>Kontakt</h2>
-    <form id="contactForm">
-        <label>Imię i nazwisko:</label>
-        <input type="text" name="name" required>
+    <div class="kontakt-container">
+        <form id="contactForm">
+            <label>Imię i nazwisko:</label>
+            <input type="text" name="name" required>
 
-        <label>Email:</label>
-        <input type="email" name="email" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
 
-        <label>Wiadomość:</label>
-        <textarea name="message" rows="5" required></textarea>
+            <label>Wiadomość:</label>
+            <textarea name="message" rows="5" required></textarea>
 
-        <button type="submit">Wyślij</button>
-    </form>
+            <button type="submit">Wyślij</button>
+        </form>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
         (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
-
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
             emailjs.send("default_service", "template_wojciech", {
                 from_name: this.name.value,
                 reply_to: this.email.value,
                 message: this.message.value,
                 to_email: "wojciech.gaudnik@gmail.com"
             })
-            .then(function() {
-                alert("Wiadomość została wysłana!");
-            }, function(error) {
-                alert("Błąd wysyłania: " + JSON.stringify(error));
-            });
+            .then(function() { alert("Wiadomość została wysłana!"); },
+                  function(error) { alert("Błąd wysyłania: " + JSON.stringify(error)); });
         });
     </script>
 </section>
 
 <canvas id="matrixCanvas"></canvas>
 <canvas id="oscilloscopeCanvas"></canvas>
+
 <footer>
     © 2025 Wojciech Gaudnik
 </footer>
+
 <script>
-    // Typewriter effect
     const text = "Wojciech Gaudnik";
     let i = 0;
     function typeWriter() {
@@ -297,7 +309,6 @@
     }
     window.onload = typeWriter;
 
-    // Neon scroll glow
     const sections = document.querySelectorAll('section');
     window.addEventListener('scroll', () => {
         sections.forEach(sec => {
@@ -310,7 +321,6 @@
         });
     });
 
-    // Matrix effect
     const matrixCanvas = document.getElementById('matrixCanvas');
     const mCtx = matrixCanvas.getContext('2d');
     matrixCanvas.width = window.innerWidth;
@@ -333,7 +343,6 @@
     }
     setInterval(drawMatrix, 50);
 
-    // Oscilloscope
     const oscCanvas = document.getElementById('oscilloscopeCanvas');
     const oCtx = oscCanvas.getContext('2d');
     oscCanvas.width = window.innerWidth;
