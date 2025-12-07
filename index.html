@@ -118,21 +118,13 @@ button {
 button:hover {
     background: #00cc55;
 }
+/* Usunięte tło Unsplash */
 body::before {
     content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.12;
-    z-index: -1;
+    display: none;
 }
 .glow-section {
-    box-shadow: 0 0 0 rgba(0,255,102,0);
+    box-shadow: 0 0 0 rgba(0,255,66,0);
     transition: box-shadow 0.5s;
 }
 .glow-section.active {
@@ -209,11 +201,9 @@ body::before {
 <section id="o-mnie">
     <h2>O mnie</h2>
     <img src="wg.png" style="width:30%; border-radius:50%; border:5px solid green; box-shadow: 0 0 20px 5px green; display:block; margin:0 auto; margin-top:10px;">
-    <div class="pocisk"></div>
     <p>
         Moją zawodową ścieżką jest programowanie. Jako senior dev-architekt projektuję i nadzoruję złożone systemy...
     </p>
-    <div class="pocisk"></div>
     <p>
         Moją drugą pasją jest elektronika — projektowanie układów, systemów sterowania i programowanie mikrokontrolerów...
     </p>
@@ -254,11 +244,10 @@ body::before {
 <canvas id="oscilloscopeCanvas"></canvas>
 
 <div id="scrollTopBtn">⬆</div>
-
 <footer>© 2025 Wojciech Gaudnik</footer>
 
 <script>
-// Typewriter
+// Typewriter effect
 const text = "Wojciech Gaudnik";
 let i = 0;
 function typeWriter() {
@@ -286,15 +275,65 @@ window.addEventListener('scroll', () => {
 // Scroll to top button
 const scrollBtn = document.getElementById("scrollTopBtn");
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        scrollBtn.classList.add("show");
-    } else {
-        scrollBtn.classList.remove("show");
+    if (window.scrollY > 300) scrollBtn.classList.add("show");
+    else scrollBtn.classList.remove("show");
+});
+scrollBtn.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+
+// --- MATRIX EFFECT ---
+const matrixCanvas = document.getElementById('matrixCanvas');
+const mCtx = matrixCanvas.getContext('2d');
+function resizeMatrix() {
+    matrixCanvas.width = window.innerWidth;
+    matrixCanvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeMatrix);
+resizeMatrix();
+
+const chars = '01';
+const fontSize = 14;
+const columns = Math.floor(matrixCanvas.width / fontSize);
+const drops = Array(columns).fill(1);
+
+function drawMatrix() {
+    mCtx.fillStyle = 'rgba(0,0,0,0.05)';
+    mCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+    mCtx.fillStyle = '#00ff66';
+    mCtx.font = fontSize + 'px monospace';
+    drops.forEach((y, i) => {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        mCtx.fillText(text, i * fontSize, y * fontSize);
+        if (y * fontSize > matrixCanvas.height && Math.random() > 0.95) drops[i] = 0;
+        drops[i]++;
+    });
+}
+setInterval(drawMatrix, 50);
+
+// --- OSCILLOSCOPE EFFECT ---
+const oscCanvas = document.getElementById('oscilloscopeCanvas');
+const oCtx = oscCanvas.getContext('2d');
+function resizeOsc() {
+    oscCanvas.width = window.innerWidth;
+    oscCanvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeOsc);
+resizeOsc();
+
+let x = 0;
+function drawOsc() {
+    oCtx.clearRect(0, 0, oscCanvas.width, oscCanvas.height);
+    oCtx.strokeStyle = '#00ff66';
+    oCtx.beginPath();
+    for (let i = 0; i < oscCanvas.width; i++) {
+        const y = oscCanvas.height / 2 + Math.sin((x + i) * 0.02) * 40 * Math.sin((x + i) * 0.005);
+        if (i === 0) oCtx.moveTo(i, y);
+        else oCtx.lineTo(i, y);
     }
-});
-scrollBtn.addEventListener("click", () => {
-    window.scrollTo({top:0, behavior:"smooth"});
-});
+    oCtx.stroke();
+    x += 4;
+    requestAnimationFrame(drawOsc);
+}
+drawOsc();
 </script>
 
 </body>
