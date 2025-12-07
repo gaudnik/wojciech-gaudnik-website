@@ -5,195 +5,193 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Wojciech Gaudnik</title>
 <style>
-
-    body {
-        background-color: #000;
-        color: #00ff66;
-        font-family: "Courier New", monospace;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        padding: 20px;
-        text-align: center;
-        font-size: 2.5rem;
-        border-bottom: 1px solid #00ff66;
-        letter-spacing: 2px;
-    }
-
-    #typewriter {
-        border-right: 2px solid #00ff66;
-        padding-right: 5px;
-        animation: blink 0.7s infinite;
-    }
-
-    @keyframes blink {
-        0% { border-color: transparent; }
-        50% { border-color: #00ff66; }
-        100% { border-color: transparent; }
-    }
-
-    nav {
-        text-align: center;
-        padding: 15px;
-        border-bottom: 1px solid #00ff66;
-    }
-
-    nav a {
-        color: #00ff66;
-        text-decoration: none;
-        margin: 0 15px;
-        border: 1px solid #00ff66;
-        padding: 8px 15px;
-        border-radius: 5px;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        background-color: #00ff66;
-        color: #000;
-    }
-
-    section {
-        padding: 40px;
-        max-width: 900px;
-        margin: 2cm auto 80px auto;
-        line-height: 1.6;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(6px);
-        border: 1px solid #00ff66;
-        border-radius: 15px;
-        box-shadow: 0 0 15px rgba(0,255,102,0.2);
-        animation: fadeIn 1s ease;
-    }
-
-    h2 {
-        color: #00ff66;
-        border-left: 4px solid #00ff66;
-        padding-left: 10px;
-    }
-
-    .project-list {
-        list-style: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-
-    .project-list li {
-        background: rgba(0, 0, 0, 0.7);
-        padding: 20px;
-        border: 1px solid #00ff66;
-        border-radius: 10px;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project-list li:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 0 20px rgba(0,255,102,0.4);
-    }
-
-    footer {
-        border-top: 1px solid #00ff66;
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-    }
-
-    input, textarea {
-        width: 100%;
-        padding: 10px;
-        margin-top: 10px;
-        background: #000;
-        border: 1px solid #00ff66;
-        color: #00ff66;
-        border-radius: 5px;
-    }
-
-    button {
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #00ff66;
-        color: #000;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    button:hover {
-        background: #00cc55;
-    }
-
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475');
-        background-size: cover;
-        background-position: center;
-        opacity: 0.12;
-        z-index: -1;
-    }
-
-    .glow-section {
-        box-shadow: 0 0 0 rgba(0,255,102,0);
-        transition: box-shadow 0.5s;
-    }
-    .glow-section.active {
-        box-shadow: 0 0 25px rgba(0,255,102,0.7);
-    }
-
-    #oscilloscopeCanvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        opacity: 0.25;
-        z-index: -2;
-    }
-
-    #matrixCanvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        opacity: 0.2;
-        z-index: -3;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    nav a::before {
-        content: "➡ ";
-    }
-
-    @media (max-width: 600px) {
-        body { font-size: 16px; }
-        nav a { display: block; margin: 10px auto; width: 70%; }
-        section { padding: 20px; }
-    }
+body {
+    background-color: #000;
+    color: #00ff66;
+    font-family: "Courier New", monospace;
+    margin: 0;
+    padding: 0;
+}
+header {
+    padding: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+    border-bottom: 1px solid #00ff66;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+#typewriter {
+    border-right: 2px solid #00ff66;
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    0% { border-color: transparent; }
+    50% { border-color: #00ff66; }
+    100% { border-color: transparent; }
+}
+nav {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #00ff66;
+}
+nav a {
+    color: #00ff66;
+    text-decoration: none;
+    margin: 0 15px;
+    border: 1px solid #00ff66;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+nav a:hover {
+    background-color: #00ff66;
+    color: #000;
+}
+nav a::before {
+    content: "➡ ";
+}
+section {
+    padding: 40px;
+    max-width: 900px;
+    margin: 2cm auto 80px auto;
+    line-height: 1.6;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    border: 1px solid #00ff66;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,255,102,0.2);
+    animation: fadeIn 1s ease;
+}
+h2 {
+    color: #00ff66;
+    border-left: 4px solid #00ff66;
+    padding-left: 10px;
+}
+.project-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.project-list li {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border: 1px solid #00ff66;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,255,102,0.4);
+}
+footer {
+    border-top: 1px solid #00ff66;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #000;
+    border: 1px solid #00ff66;
+    color: #00ff66;
+    border-radius: 5px;
+}
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #00ff66;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background: #00cc55;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+    z-index: -1;
+}
+.glow-section {
+    box-shadow: 0 0 0 rgba(0,255,102,0);
+    transition: box-shadow 0.5s;
+}
+.glow-section.active {
+    box-shadow: 0 0 25px rgba(0,255,102,0.7);
+}
+#oscilloscopeCanvas, #matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+#oscilloscopeCanvas { opacity: 0.25; z-index: -2; }
+#matrixCanvas { opacity: 0.2; z-index: -3; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+    body { font-size: 16px; }
+    nav a { display: block; margin: 10px auto; width: 70%; }
+    section { padding: 20px; }
+}
+/* Scroll to top button */
+#scrollTopBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0,0,0,0.8);
+    border: 2px solid #00ff66;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ff66;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 15px #00ff66;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+#scrollTopBtn:hover {
+    background: #00ff66;
+    color: #000;
+    box-shadow: 0 0 25px #00ff66;
+}
+#scrollTopBtn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
 </style>
 </head>
 <body>
 
-<header onclick="window.location.href='/'" style="cursor:pointer;">
+<header onclick="window.location.href='/'">
     <span id="typewriter"></span>
 </header>
 
-<!-- ✅ TYLKO TO MENU JEST ZMIENIONE -->
 <nav>
     <a href="#o-mnie">O mnie</a>
     <a href="programowanie.html">Programowanie</a>
@@ -206,55 +204,14 @@
 
 <section id="o-mnie">
     <h2>O mnie</h2>
-
-    <img src="wg.png"
-         style="width:30%;
-                border-radius:50%;
-                border:5px solid green;
-                box-shadow: 0 0 20px 5px green;
-                margin-top:10px;
-                display:block;
-                margin:0 auto;">
-
-    <style>
-        .pocisk {
-          position: relative;
-          height: 4px;
-          width: 90%;
-          margin: 25px auto;
-          background: #00ff55;
-          border-radius: 50px;
-          overflow: hidden;
-          box-shadow: 0 0 20px #00ff55;
-        }
-
-        .pocisk::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -20%;
-          height: 100%;
-          width: 20%;
-          background: #66ff99;
-          border-radius: 50px;
-          box-shadow: 0 0 25px #00ff55, 0 0 40px #00ff55;
-          animation: pociskAnim 1.2s infinite linear;
-        }
-
-        @keyframes pociskAnim {
-          0% { left: -20%; }
-          100% { left: 100%; }
-        }
-    </style>
-
-    <p>
-        Moją zawodową ścieżką jest programowanie. Jako senior dev-architekt projektuję i nadzoruję złożone systemy, definiuję ich architekturę oraz dobieram technologie, w tym Java, Spring i mikroserwisy, dbając o jakość, wydajność oraz bezpieczeństwo. Współpracuję z zespołami i interesariuszami, przekładając wymagania biznesowe na rozwiązania techniczne, prowadzę przeglądy kodu i wspieram młodszych programistów. Odpowiadam także za planowanie rozwoju systemów i minimalizowanie ryzyk, aby architektura była stabilna i łatwa w utrzymaniu.
-    </p>
-
+    <img src="wg.png" style="width:30%; border-radius:50%; border:5px solid green; box-shadow: 0 0 20px 5px green; display:block; margin:0 auto; margin-top:10px;">
     <div class="pocisk"></div>
-
     <p>
-        Moją drugą pasją jest elektronika — projektowanie układów, systemów sterowania i programowanie mikrokontrolerów. Łącząc tę pasję z doświadczeniem inżynierskim, tworzę funkcjonalne i niezawodne rozwiązania elektroniki i embedded. Z czasem przerodziło się to w działalność biznesową, dzięki której mogę realizować projekty łączące architekturę IT z praktyczną elektroniką — od sprzętu po oprogramowanie.
+        Moją zawodową ścieżką jest programowanie. Jako senior dev-architekt projektuję i nadzoruję złożone systemy...
+    </p>
+    <div class="pocisk"></div>
+    <p>
+        Moją drugą pasją jest elektronika — projektowanie układów, systemów sterowania i programowanie mikrokontrolerów...
     </p>
 </section>
 
@@ -281,13 +238,10 @@
     <form id="contactForm">
         <label>Imię i nazwisko:</label>
         <input type="text" name="name" required>
-
         <label>Email:</label>
         <input type="email" name="email" required>
-
         <label>Wiadomość:</label>
         <textarea name="message" rows="5" required></textarea>
-
         <button type="submit">Wyślij</button>
     </form>
 </section>
@@ -295,11 +249,12 @@
 <canvas id="matrixCanvas"></canvas>
 <canvas id="oscilloscopeCanvas"></canvas>
 
-<footer>
-    © 2025 Wojciech Gaudnik
-</footer>
+<div id="scrollTopBtn">⬆</div>
+
+<footer>© 2025 Wojciech Gaudnik</footer>
 
 <script>
+// Typewriter
 const text = "Wojciech Gaudnik";
 let i = 0;
 function typeWriter() {
@@ -311,6 +266,7 @@ function typeWriter() {
 }
 window.onload = typeWriter;
 
+// Neon glow on scroll
 const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
     sections.forEach(sec => {
@@ -322,8 +278,22 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Scroll to top button
+const scrollBtn = document.getElementById("scrollTopBtn");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+    } else {
+        scrollBtn.classList.remove("show");
+    }
+});
+scrollBtn.addEventListener("click", () => {
+    window.scrollTo({top:0, behavior:"smooth"});
+});
 </script>
 
 </body>
 </html>
+
 
