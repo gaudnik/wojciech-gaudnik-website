@@ -19,6 +19,7 @@ header {
     font-size: 2.5rem;
     border-bottom: 1px solid #00ff66;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 #typewriter {
     border-right: 2px solid #00ff66;
@@ -34,6 +35,10 @@ nav {
     text-align: center;
     padding: 15px;
     border-bottom: 1px solid #00ff66;
+    background: rgba(0,0,0,0.85);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 nav a {
     color: #00ff66;
@@ -83,15 +88,46 @@ body::before {
     opacity: 0.12;
     z-index: -1;
 }
+
+/* Scroll to top button */
+#scrollTopBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0,0,0,0.8);
+    border: 2px solid #00ff66;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ff66;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 15px #00ff66;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+#scrollTopBtn:hover {
+    background: #00ff66;
+    color: #000;
+    box-shadow: 0 0 25px #00ff66;
+}
+#scrollTopBtn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
 </style>
 </head>
 <body>
 
-<header onclick="window.location.href='/'" style="cursor:pointer;">
+<header onclick="window.location.href='/'">
     <span id="typewriter"></span>
 </header>
 
-<!-- ✅ IDENTYCZNE MENU -->
 <nav>
     <a href="index.html#o-mnie">O mnie</a>
     <a href="programowanie.html">Programowanie</a>
@@ -121,9 +157,12 @@ body::before {
     </p>
 </section>
 
+<div id="scrollTopBtn">⬆</div>
+
 <footer>© 2025 Wojciech Gaudnik</footer>
 
 <script>
+// Typewriter
 const text = "Elektronika";
 let i = 0;
 function typeWriter() {
@@ -134,8 +173,20 @@ function typeWriter() {
     }
 }
 window.onload = typeWriter;
+
+// Scroll to top button
+const scrollBtn = document.getElementById("scrollTopBtn");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollBtn.classList.add("show");
+    } else {
+        scrollBtn.classList.remove("show");
+    }
+});
+scrollBtn.addEventListener("click", () => {
+    window.scrollTo({top:0, behavior:"smooth"});
+});
 </script>
 
 </body>
 </html>
-
