@@ -71,6 +71,26 @@ h2 {
     border-left: 4px solid #00ff66;
     padding-left: 10px;
 }
+
+/* === DOŚWIADCZENIE ZAWODOWE === */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+.exp-box {
+    border: 1px solid #00ff66;
+    border-radius: 12px;
+    padding: 20px;
+    background: rgba(0,0,0,0.75);
+    box-shadow: 0 0 15px rgba(0,255,102,0.25);
+}
+.exp-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
 footer {
     border-top: 1px solid #00ff66;
     text-align: center;
@@ -87,7 +107,6 @@ footer {
 }
 #oscilloscopeCanvas { opacity: 0.25; z-index: -2; }
 #matrixCanvas { opacity: 0.2; z-index: -3; }
-/* Scroll to top button */
 #scrollTopBtn {
     position: fixed;
     right: 25px;
@@ -112,7 +131,6 @@ footer {
 #scrollTopBtn:hover {
     background: #00ff66;
     color: #000;
-    box-shadow: 0 0 25px #00ff66;
 }
 #scrollTopBtn.show {
     opacity: 1;
@@ -139,18 +157,96 @@ footer {
 <section>
     <h2>Programowanie</h2>
     <p>
-        Moją zawodową ścieżką jest programowanie. Jako senior dev-architekt projektuję
-        i nadzoruję złożone systemy, definiuję ich architekturę oraz dobieram technologie,
-        w tym Java, Spring i mikroserwisy.
+      Moją zawodową ścieżką jest programowanie. Jako senior dev-architekt projektuję i nadzoruję złożone systemy, definiuję ich architekturę oraz dobieram technologie.
+
+Współpracuję z zespołami i interesariuszami, przekładając wymagania biznesowe na rozwiązania techniczne, prowadzę przeglądy kodu i wspieram młodszych programistów.
+
+Odpowiadam za planowanie rozwoju systemów i minimalizowanie ryzyk, tak aby architektura była stabilna, bezpieczna i łatwa w utrzymaniu.
+    </p>
+</section>
+
+<section>
+    <h2>Architektura i backend</h2>
+    <p>
+        Jako senior developer i architekt tworzę oraz nadzoruję architekturę
+        złożonych systemów backendowych. Specjalizuję się w technologiach
+        opartych o Java, Spring oraz architekturę mikroserwisową.
     </p>
     <p>
-        Współpracuję z zespołami i interesariuszami, przekładając wymagania biznesowe
-        na rozwiązania techniczne, prowadzę przeglądy kodu i wspieram młodszych programistów.
+        Dbam o spójność rozwiązań, jakość kodu oraz zgodność architektury
+        z wymaganiami biznesowymi i niefunkcjonalnymi.
+    </p>
+</section>
+
+<section>
+    <h2>Współpraca i leadership techniczny</h2>
+    <p>
+        Ściśle współpracuję z zespołami developerskimi, analitykami
+        oraz interesariuszami biznesowymi, tłumacząc potrzeby biznesowe
+        na konkretne rozwiązania techniczne.
     </p>
     <p>
-        Odpowiadam za planowanie rozwoju systemów i minimalizowanie ryzyk,
-        tak aby architektura była stabilna, bezpieczna i łatwa w utrzymaniu.
+        Prowadzę przeglądy kodu, wspieram młodszych programistów
+        oraz dbam o wysokie standardy inżynierii oprogramowania.
     </p>
+</section>
+
+<section>
+    <h2>Stabilność i rozwój systemów</h2>
+    <p>
+        Odpowiadam za planowanie rozwoju systemów, analizę ryzyk
+        oraz podejmowanie decyzji technologicznych, które wpływają
+        na bezpieczeństwo i utrzymanie aplikacji.
+    </p>
+    <p>
+        Moim celem jest tworzenie rozwiązań odpornych na zmiany,
+        łatwych w utrzymaniu i gotowych na dalszą rozbudowę.
+    </p>
+</section>
+
+<!-- === NOWA SEKCJA === -->
+<section>
+    <h2>Doświadczenie zawodowe</h2>
+
+    <div class="experience-grid">
+
+        <div class="exp-box">
+            <h3>DHC Business Solutions</h3>
+            <p><strong>Technical / Tech Lead Java Engineer</strong><br>
+            Mikroserwisy Spring Boot, DDD, CQRS, CI/CD, observability oraz leadership techniczny.</p>
+        </div>
+
+        <div class="exp-box">
+            <h3>SoftwarePlant</h3>
+            <p><strong>Java Software Engineer</strong><br>
+            Rozwój i refaktoryzacja aplikacji Java, integracja backend–frontend.</p>
+        </div>
+
+        <div class="exp-box">
+            <h3>Enigma Systemy Ochrony Informacji</h3>
+            <p><strong>Java Software Engineer</strong><br>
+            Backend REST/SOAP, systemy bezpieczeństwa, testy integracyjne.</p>
+        </div>
+
+        <div class="exp-box">
+            <h3>Luewo Sp. z o.o.</h3>
+            <p><strong>Senior Java Software Engineer / Team Lead</strong><br>
+            Systemy ERP, architektura backendu, DevOps i prowadzenie zespołów.</p>
+        </div>
+
+        <div class="exp-box">
+            <h3>Fundacja Rozwoju Sztuki Intermediów</h3>
+            <p><strong>Python ML/AI Developer</strong><br>
+            Oprogramowanie AI (Nvidia Jetson) do analizy sygnałów biologicznych.</p>
+        </div>
+
+        <div class="exp-box">
+            <h3>ASP Intermedia</h3>
+            <p><strong>C Embedded Developer</strong><br>
+            Oprogramowanie embedded dla robotyki.</p>
+        </div>
+
+    </div>
 </section>
 
 <canvas id="matrixCanvas"></canvas>
@@ -160,7 +256,6 @@ footer {
 <footer>© 2025 Wojciech Gaudnik</footer>
 
 <script>
-// Typewriter
 const text = "Programowanie";
 let i = 0;
 function typeWriter() {
@@ -171,67 +266,7 @@ function typeWriter() {
     }
 }
 window.onload = typeWriter;
-
-// Scroll to top
-const scrollBtn = document.getElementById("scrollTopBtn");
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) scrollBtn.classList.add("show");
-    else scrollBtn.classList.remove("show");
-});
-scrollBtn.addEventListener("click", () => {
-    window.scrollTo({top:0, behavior:"smooth"});
-});
-
-// MATRIX effect
-const matrixCanvas = document.getElementById('matrixCanvas');
-const mCtx = matrixCanvas.getContext('2d');
-function resizeMatrix() {
-    matrixCanvas.width = window.innerWidth;
-    matrixCanvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeMatrix);
-resizeMatrix();
-const chars = '01';
-const fontSize = 14;
-const columns = Math.floor(matrixCanvas.width / fontSize);
-const drops = Array(columns).fill(1);
-function drawMatrix() {
-    mCtx.fillStyle = 'rgba(0,0,0,0.05)';
-    mCtx.fillRect(0,0,matrixCanvas.width,matrixCanvas.height);
-    mCtx.fillStyle = '#00ff66';
-    mCtx.font = fontSize + 'px monospace';
-    drops.forEach((y,i)=>{
-        const text = chars[Math.floor(Math.random()*chars.length)];
-        mCtx.fillText(text, i*fontSize, y*fontSize);
-        if (y*fontSize > matrixCanvas.height && Math.random()>0.95) drops[i]=0;
-        drops[i]++;
-    });
-}
-setInterval(drawMatrix,50);
-
-// Oscilloscope
-const oscCanvas = document.getElementById('oscilloscopeCanvas');
-const oCtx = oscCanvas.getContext('2d');
-function resizeOsc() {
-    oscCanvas.width = window.innerWidth;
-    oscCanvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeOsc);
-resizeOsc();
-let x = 0;
-function drawOsc() {
-    oCtx.clearRect(0,0,oscCanvas.width,oscCanvas.height);
-    oCtx.strokeStyle = '#00ff66';
-    oCtx.beginPath();
-    for (let i=0; i<oscCanvas.width; i++){
-        const y = oscCanvas.height/2 + Math.sin((x+i)*0.02)*40*Math.sin((x+i)*0.005);
-        if(i===0) oCtx.moveTo(i,y); else oCtx.lineTo(i,y);
-    }
-    oCtx.stroke();
-    x+=4;
-    requestAnimationFrame(drawOsc);
-}
-drawOsc();
 </script>
+
 </body>
 </html>
